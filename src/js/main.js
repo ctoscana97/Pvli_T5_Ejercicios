@@ -43,6 +43,7 @@ var PreloaderScene = {
       this.game.load.tilemap('tilemap', 'images/rush_spritesheet.json', null, Phaser.Tilemap.TILED_JSON);
 
       //TODO 2.2a Escuchar el evento onLoadComplete con el método loadComplete que el state 'play'
+      this.game.load.onLoadComplete.add(this.loadComplete, this);
 
   },
 
@@ -52,7 +53,10 @@ var PreloaderScene = {
   },
     
     
-     //TODO 2.2b function loadComplete()
+     //TODO 2.2b 
+    loadComplete: function () {
+      this.game.state.start('play');
+    }
 
     
     update: function(){
