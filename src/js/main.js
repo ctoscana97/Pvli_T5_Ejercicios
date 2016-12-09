@@ -62,6 +62,17 @@ var PreloaderScene = {
     update: function(){
         this._loadingBar
     }
+
+    init: function(){
+      //TODO 1.2 Añadir los states 'boot' BootScene, 'menu' MenuScene, 'preloader' PreloaderScene, 'play' PlayScene, 'gameOver' GameOver.
+    game.state.add('boot', BootScene);
+    game.state.add('menu', menuScene);
+    game.state.add('preloader', PreloaderScene);
+    game.state.add('play', playScene);
+    game.state.add('gameOver', gameOver);
+    //TODO 1.3 iniciar el state 'boot'. 
+    this.game.state.start('boot');
+    }
 };
 
 
@@ -77,21 +88,12 @@ var wfconfig = {
     }
  
 };
- 
-//TODO 3.2 Cargar Google font cuando la página esté cargada con wfconfig.
+
 //TODO 3.3 La creación del juego y la asignación de los states se hará en el método init().
 
 window.onload = function () {
   var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
-
-//TODO 1.2 Añadir los states 'boot' BootScene, 'menu' MenuScene, 'preloader' PreloaderScene, 'play' PlayScene, 'gameOver' GameOver.
-game.state.add('boot', BootScene);
-game.state.add('menu', menuScene);
-game.state.add('preloader', PreloaderScene);
-game.state.add('play', playScene);
-game.state.add('gameOver', gameOver);
-
-//TODO 1.3 iniciar el state 'boot'. 
-this.game.state.start('boot');
+//TODO 3.2 Cargar Google font cuando la página esté cargada con wfconfig.
+WebFont.load(wfconfig);
     
 };
